@@ -20,6 +20,8 @@
 		A6E9D1992683987B00B4640C /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E9D1982683987B00B4640C /* MoviesViewController.m */; };
 		A6E9D19F26843D0A00B4640C /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E9D19E26843D0A00B4640C /* MovieCell.m */; };
 		A6E9D1A2268458A800B4640C /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E9D1A1268458A800B4640C /* DetailsViewController.m */; };
+		A6E9D1A52684704A00B4640C /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E9D1A42684704A00B4640C /* MoviesGridViewController.m */; };
+		A6E9D1A8268472CF00B4640C /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E9D1A7268472CF00B4640C /* MovieCollectionCell.m */; };
 		B0014936D7FAE88D2EBA89B0 /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2EDC933874237B9414D785 /* Pods_Flix.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,10 @@
 		A6E9D19E26843D0A00B4640C /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		A6E9D1A0268458A800B4640C /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		A6E9D1A1268458A800B4640C /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		A6E9D1A32684704A00B4640C /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
+		A6E9D1A42684704A00B4640C /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
+		A6E9D1A6268472CF00B4640C /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		A6E9D1A7268472CF00B4640C /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		DB7BDE120B01D20BDAFAFCCF /* Pods-FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixTests.release.xcconfig"; path = "Target Support Files/Pods-FlixTests/Pods-FlixTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5EAE62F6A6D6C95F7FD3006 /* Pods-Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.debug.xcconfig"; path = "Target Support Files/Pods-Flix/Pods-Flix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +185,8 @@
 			children = (
 				A6E9D19D26843D0A00B4640C /* MovieCell.h */,
 				A6E9D19E26843D0A00B4640C /* MovieCell.m */,
+				A6E9D1A6268472CF00B4640C /* MovieCollectionCell.h */,
+				A6E9D1A7268472CF00B4640C /* MovieCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +198,8 @@
 				A6E9D1982683987B00B4640C /* MoviesViewController.m */,
 				A6E9D1A0268458A800B4640C /* DetailsViewController.h */,
 				A6E9D1A1268458A800B4640C /* DetailsViewController.m */,
+				A6E9D1A32684704A00B4640C /* MoviesGridViewController.h */,
+				A6E9D1A42684704A00B4640C /* MoviesGridViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -452,8 +462,10 @@
 				A6E9D19F26843D0A00B4640C /* MovieCell.m in Sources */,
 				A6E9D1992683987B00B4640C /* MoviesViewController.m in Sources */,
 				A6E9D1A2268458A800B4640C /* DetailsViewController.m in Sources */,
+				A6E9D1A8268472CF00B4640C /* MovieCollectionCell.m in Sources */,
 				A6E9D1752683904F00B4640C /* main.m in Sources */,
 				A6E9D1672683904D00B4640C /* SceneDelegate.m in Sources */,
+				A6E9D1A52684704A00B4640C /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
