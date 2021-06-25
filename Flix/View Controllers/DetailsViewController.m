@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 
 @end
 
@@ -35,8 +37,10 @@
     
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
-    [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
+    float rating = [self.movie[@"vote_average"] floatValue];
+    self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", rating];
+    self.yearLabel.text = [self.movie[@"release_date"] substringWithRange:NSMakeRange(0, 4)];
     
     self.posterView.layer.cornerRadius = 10.0;
     self.posterView.layer.masksToBounds = YES;
