@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *filteredMovies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 
 @end
 
@@ -33,6 +34,12 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    // styling
+    self.searchBar.layer.borderWidth = 1;
+    self.searchBar.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.profileImg.layer.cornerRadius = 30;
+    self.profileImg.layer.masksToBounds = YES;
 }
 
 - (void)fetchMovies {
