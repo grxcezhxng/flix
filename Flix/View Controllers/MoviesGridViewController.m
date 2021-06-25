@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -22,6 +23,7 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    [self.activityIndicator startAnimating];
     
     [self fetchMovies];
     
@@ -48,6 +50,7 @@
                
                self.movies = dataDictionary[@"results"];
                [self.collectionView reloadData];
+               [self.activityIndicator stopAnimating];
            }
        }];
     [task resume];
