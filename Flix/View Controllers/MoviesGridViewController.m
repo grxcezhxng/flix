@@ -24,7 +24,6 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.activityIndicator startAnimating];
-    
     [self fetchMovies];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
@@ -34,7 +33,6 @@
     CGFloat itemWidth = (self.collectionView.frame.size.width - 70 - layout.minimumInteritemSpacing * (postersPerLine - 1))/ postersPerLine;
     CGFloat itemHeight = 2.0 * itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    // Do any additional setup after loading the view.
 }
 
 - (void)fetchMovies {
@@ -76,15 +74,5 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.movies.count;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
