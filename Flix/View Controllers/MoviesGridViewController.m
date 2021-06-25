@@ -27,10 +27,10 @@
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 20;
-    layout.minimumLineSpacing = 30;
+    layout.minimumLineSpacing = 0;
     CGFloat postersPerLine = 2;
-    CGFloat itemWidth = (self.collectionView.frame.size.width - 60 - layout.minimumInteritemSpacing * (postersPerLine - 1))/ postersPerLine;
-    CGFloat itemHeight = 1.5 * itemWidth;
+    CGFloat itemWidth = (self.collectionView.frame.size.width - 70 - layout.minimumInteritemSpacing * (postersPerLine - 1))/ postersPerLine;
+    CGFloat itemHeight = 2.0 * itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     // Do any additional setup after loading the view.
 }
@@ -57,6 +57,7 @@
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
     NSDictionary *movie = self.movies[indexPath.item];
+    cell.titleLabel.text = movie[@"title"];
     
     NSString *baseUrlString = @"https://image.tmdb.org/t/p/original";
     NSString *posterURLString = movie[@"poster_path"];
