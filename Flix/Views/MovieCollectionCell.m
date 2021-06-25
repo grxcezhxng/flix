@@ -13,10 +13,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.posterView.layer.cornerRadius = 5.0;
-    NSLog(@"%@", self.posterView);
+    self.backgroundColor = UIColor.clearColor;
+    self.posterView.layer.cornerRadius = 20.0;
     self.posterView.layer.masksToBounds = YES;
-
+    self.posterView.clipsToBounds = YES;
 }
 
 @end

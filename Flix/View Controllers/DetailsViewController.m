@@ -38,6 +38,10 @@
     self.synopsisLabel.text = self.movie[@"overview"];
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
+    
+    self.posterView.layer.cornerRadius = 10.0;
+    self.posterView.layer.masksToBounds = YES;
+    self.posterView.clipsToBounds = YES;
 }
 
 /*
