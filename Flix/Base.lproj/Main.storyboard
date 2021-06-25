@@ -209,7 +209,7 @@
         <scene sceneID="5ib-5x-G8B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZMA-xb-4bK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="6qn-9o-7yq"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="projector_tabbar_item" id="6qn-9o-7yq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pye-Jj-uRD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -228,7 +228,7 @@
         <scene sceneID="jSW-ia-Unt">
             <objects>
                 <navigationController id="zXe-dI-d2K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="M7S-SE-rV2"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="reel_tabbar_icon" id="M7S-SE-rV2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvo-vp-Sj4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -243,6 +243,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="projector_tabbar_item" width="21" height="25"/>
+        <image name="reel_tabbar_icon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
