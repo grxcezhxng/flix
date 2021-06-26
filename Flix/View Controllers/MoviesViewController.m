@@ -33,6 +33,7 @@
     self.filteredMovies = self.movies;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.tintColor = UIColor.whiteColor;
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     // styling
@@ -131,8 +132,6 @@
              return [evaluatedObject[@"title"] containsString:searchText];
          }];
         self.filteredMovies = [self.movies filteredArrayUsingPredicate:filterByName];
-         
-         NSLog(@"%@", self.filteredMovies);
      }
      else {
          self.filteredMovies = self.movies;
@@ -151,7 +150,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
     
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
