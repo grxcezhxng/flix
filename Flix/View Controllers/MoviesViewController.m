@@ -36,10 +36,27 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     // styling
-    self.searchBar.layer.borderWidth = 1;
-    self.searchBar.layer.borderColor = [[UIColor whiteColor] CGColor];
+
+    self.searchBar.searchTextField.backgroundColor
+    = [UIColor colorWithRed:64.0f/255.0f
+                      green:69.0f/255.0f
+                       blue:82.0f/255.0f
+                      alpha:1.0f];
+    
+    self.searchBar.layer.borderWidth = 0;
+    self.searchBar.layer.borderColor = [[UIColor clearColor] CGColor];
     self.profileImg.layer.cornerRadius = 30;
     self.profileImg.layer.masksToBounds = YES;
+    // Create the gradient
+    UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
+    UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
+    theViewGradient.colors = [NSArray arrayWithObjects: (id)leftColor.CGColor, (id)middleColor.CGColor,(id)rightColor.CGColor, nil];
+    theViewGradient.frame = self.view.bounds;
+
+    //Add gradient to view
+    [self.view.layer insertSublayer:theViewGradient atIndex:0];
 }
 
 - (void)fetchMovies {
@@ -91,7 +108,7 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterUrlString];
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
-    
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 

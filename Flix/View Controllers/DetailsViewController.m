@@ -24,6 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Create the gradient
+    UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
+    UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
+    theViewGradient.colors = [NSArray arrayWithObjects: (id)leftColor.CGColor, (id)middleColor.CGColor,(id)rightColor.CGColor, nil];
+    theViewGradient.frame = self.view.bounds;
+
+    //Add gradient to view
+    [self.view.layer insertSublayer:theViewGradient atIndex:0];
+    
     NSString *baseUrlString = @"https://image.tmdb.org/t/p/original";
     NSString *posterUrLString = self.movie[@"poster_path"];
     NSString *fullPosterUrlString = [baseUrlString stringByAppendingString:posterUrLString];
