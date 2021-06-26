@@ -36,8 +36,7 @@
     self.refreshControl.tintColor = UIColor.whiteColor;
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
-    // styling
-
+    // header styling
     [self.searchBar setImage:[UIImage imageNamed:@"darkModeSearch"]
        forSearchBarIcon:UISearchBarIconSearch
                   state:UIControlStateNormal];
@@ -52,15 +51,13 @@
     self.profileImg.layer.cornerRadius = 35;
     self.profileImg.layer.masksToBounds = YES;
 
-    // gradient
+    // dark mode gradient
     UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
     UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
     UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
     CAGradientLayer *theViewGradient = [CAGradientLayer layer];
     theViewGradient.colors = [NSArray arrayWithObjects: (id)leftColor.CGColor, (id)middleColor.CGColor,(id)rightColor.CGColor, nil];
     theViewGradient.frame = self.view.bounds;
-
-    //Add gradient to view
     [self.view.layer insertSublayer:theViewGradient atIndex:0];
 }
 
@@ -120,33 +117,28 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      [tableView deselectRowAtIndexPath:indexPath animated:YES];
- }
+}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
     if (searchText.length != 0) {
          NSPredicate *filterByName = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
              return [evaluatedObject[@"title"] containsString:searchText];
          }];
         self.filteredMovies = [self.movies filteredArrayUsingPredicate:filterByName];
-     }
+    }
      else {
          self.filteredMovies = self.movies;
      }
-     
      [self.tableView reloadData];
 };
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
+-(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
