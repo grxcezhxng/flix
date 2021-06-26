@@ -50,7 +50,8 @@
     self.searchBar.layer.borderColor = [[UIColor clearColor] CGColor];
     self.profileImg.layer.cornerRadius = 35;
     self.profileImg.layer.masksToBounds = YES;
-    // Create the gradient
+
+    // gradient
     UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
     UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
     UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
@@ -103,6 +104,9 @@
     NSDictionary *movie = self.filteredMovies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
+    float rating = [movie[@"vote_average"] floatValue];
+    cell.ratingLabel.text = [NSString stringWithFormat:@"%.1f", rating];
+    cell.yearLabel.text = [movie[@"release_date"] substringWithRange:NSMakeRange(0, 4)];
     
     NSString *baseUrlString = @"https://image.tmdb.org/t/p/original";
     NSString *posterURLString = movie[@"poster_path"];
