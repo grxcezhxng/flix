@@ -58,4 +58,10 @@
     self.posterView.clipsToBounds = YES;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+
 @end

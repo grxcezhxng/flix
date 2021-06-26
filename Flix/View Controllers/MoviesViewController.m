@@ -37,15 +37,18 @@
     
     // styling
 
+    [self.searchBar setImage:[UIImage imageNamed:@"darkModeSearch"]
+       forSearchBarIcon:UISearchBarIconSearch
+                  state:UIControlStateNormal];
     self.searchBar.searchTextField.backgroundColor
     = [UIColor colorWithRed:64.0f/255.0f
                       green:69.0f/255.0f
                        blue:82.0f/255.0f
                       alpha:1.0f];
-    
+    self.searchBar.searchTextField.textColor = UIColor.whiteColor;
     self.searchBar.layer.borderWidth = 0;
     self.searchBar.layer.borderColor = [[UIColor clearColor] CGColor];
-    self.profileImg.layer.cornerRadius = 30;
+    self.profileImg.layer.cornerRadius = 35;
     self.profileImg.layer.masksToBounds = YES;
     // Create the gradient
     UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
@@ -112,6 +115,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ }
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {
@@ -128,6 +136,11 @@
      
      [self.tableView reloadData];
 };
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 #pragma mark - Navigation
 
