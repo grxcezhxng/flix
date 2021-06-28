@@ -31,6 +31,8 @@
     self.searchBar.delegate = self;
     [self fetchMovies];
     self.filteredMovies = self.movies;
+    
+    // refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.tintColor = UIColor.whiteColor;
@@ -52,9 +54,9 @@
     self.profileImg.layer.masksToBounds = YES;
 
     // dark mode gradient
-    UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
-    UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
-    UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    UIColor const *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
+    UIColor const *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    UIColor const *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
     CAGradientLayer *theViewGradient = [CAGradientLayer layer];
     theViewGradient.colors = [NSArray arrayWithObjects: (id)leftColor.CGColor, (id)middleColor.CGColor,(id)rightColor.CGColor, nil];
     theViewGradient.frame = self.view.bounds;
@@ -71,6 +73,7 @@
                
                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot get movies" message:@"The internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
                
+               // error alert
                [self presentViewController:alert animated:YES completion:^{
                }];
                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -106,10 +109,9 @@
     cell.ratingLabel.text = [NSString stringWithFormat:@"%.1f", rating];
     cell.yearLabel.text = [movie[@"release_date"] substringWithRange:NSMakeRange(0, 4)];
     
-    NSString *baseUrlString = @"https://image.tmdb.org/t/p/original";
+    NSString const *baseUrlString = @"https://image.tmdb.org/t/p/original";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterUrlString = [baseUrlString stringByAppendingString:posterURLString];
-    
     NSURL *posterURL = [NSURL URLWithString:fullPosterUrlString];
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];

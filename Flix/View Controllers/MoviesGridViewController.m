@@ -29,20 +29,19 @@
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 20;
     layout.minimumLineSpacing = 0;
-    CGFloat postersPerLine = 2;
-    CGFloat itemWidth = (self.collectionView.frame.size.width - 70 - layout.minimumInteritemSpacing * (postersPerLine - 1))/ postersPerLine;
+    CGFloat const margin = 35;
+    CGFloat const postersPerLine = 2;
+    CGFloat itemWidth = (self.collectionView.frame.size.width - margin * 2 - layout.minimumInteritemSpacing * (postersPerLine - 1))/ postersPerLine;
     CGFloat itemHeight = 2.0 * itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    // Create the gradient
-    UIColor *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
-    UIColor *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
-    UIColor *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    // dark mode gradient
+    UIColor const *leftColor = [UIColor colorWithRed:16.0/255.0 green:33.0/255.0 blue:44.0/255.0 alpha:1.0];
+    UIColor const *middleColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
+    UIColor const *rightColor = [UIColor colorWithRed:30.0/255.0 green:25.0/255.0 blue:47.0/255.0 alpha:1.0];
     CAGradientLayer *theViewGradient = [CAGradientLayer layer];
     theViewGradient.colors = [NSArray arrayWithObjects: (id)leftColor.CGColor, (id)middleColor.CGColor,(id)rightColor.CGColor, nil];
     theViewGradient.frame = self.view.bounds;
-
-    //Add gradient to view
     [self.view.layer insertSublayer:theViewGradient atIndex:0];
 }
 
@@ -71,10 +70,9 @@
     NSDictionary *movie = self.movies[indexPath.item];
     cell.titleLabel.text = movie[@"title"];
     
-    NSString *baseUrlString = @"https://image.tmdb.org/t/p/original";
+    NSString const *baseUrlString = @"https://image.tmdb.org/t/p/original";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterUrlString = [baseUrlString stringByAppendingString:posterURLString];
-    
     NSURL *posterURL = [NSURL URLWithString:fullPosterUrlString];
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
@@ -86,8 +84,7 @@
     return self.movies.count;
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
+-(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
